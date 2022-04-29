@@ -89,7 +89,7 @@ class Button{
             this.clicked = 5
             setTimeout(() => {
                 this.clicked = 0
-            },500)
+            },100)
         }
     }
 }
@@ -158,8 +158,6 @@ class Marble{
                 this.vy -= speed*dy
                 object.vx += speed*dx
                 object.vy += speed*dy
-                object.x += object.vx
-                object.y += object.vy
             }
             else{
                 this.vx -= speed*dx*2
@@ -167,8 +165,8 @@ class Marble{
             }
             const d = dist-collisionDist
             if(object.obstacle == true){
-                this.x -= (d/1.9)*(Math.abs(this.vx)/this.vx)
-                this.y -= (d/1.9)*(Math.abs(this.vy)/this.vy)
+                this.x -= (d/1.33)*(Math.abs(this.vx)/this.vx)
+                this.y -= (d/1.33)*(Math.abs(this.vy)/this.vy)
             }
             else{
                 this.x -= (d/3)*(Math.abs(this.vx)/this.vx)
@@ -224,7 +222,7 @@ class Renderer{
                 else{
                     alert('2 or more participants are required to start the event')
                 }
-            },600)
+            },150)
         })]
         for (let i=0; i<this.players.length; i++){
             let cols = i
